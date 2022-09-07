@@ -2,7 +2,7 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Splash, ListJerseys, Profile, JerseyDetail, Carts, Checkout, EditProfile, ChangePassword, History, Login } from '../pages';
+import { Home, Splash, ListJerseys, Profile, JerseyDetail, Carts, Checkout, EditProfile, ChangePassword, History, Login, Register1, Register2 } from '../pages';
 import { BottomNavigator } from '../components';
 
 
@@ -32,6 +32,8 @@ const Router = () => {
             <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ title: 'Change Password' }} />
             <Stack.Screen name="History" component={History} options={{ title: 'History Order' }} />
             <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+            <Stack.Screen name="Register1" component={Register1} options={{ headerShown: false }} />
+            <Stack.Screen name="Register2" component={Register2} options={{ headerShown: false }} />
         </Stack.Navigator>
     )
 }

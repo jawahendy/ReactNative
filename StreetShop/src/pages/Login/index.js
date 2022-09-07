@@ -24,7 +24,7 @@ export default class Login extends Component {
                     <Buttons title="Login" type="text" padding={12} fontSize={18} />
                 </View>
 
-                <TouchableOpacity style={styles.register}>
+                <TouchableOpacity style={styles.register} onPress={() => this.props.navigation.navigate('Register1')}>
                     <Text style={styles.txtBlue}>Sign Up</Text>
                 </TouchableOpacity>
 
