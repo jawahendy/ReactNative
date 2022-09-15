@@ -4,6 +4,7 @@ import { colors, fonts, responsiveHeight, responsiveWidth } from '../../utils'
 import { dummyProfile, menus } from '../../data'
 import { RFValue } from "react-native-responsive-fontsize";
 import { ListMenu } from '../../components/besar';
+import { Distances } from '../../components';
 
 export default class Profile extends Component {
     constructor(props) {

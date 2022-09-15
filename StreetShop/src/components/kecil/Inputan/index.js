@@ -2,20 +2,20 @@ import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import { colors, fonts } from '../../../utils';
 
-const Inputan = ({ textarea, width, height, fontSize, placeholder, label, value, secureTextEntry, keyboardType }) => {
+const Inputan = ({ textarea, width, height, fontSize, placeholder, label, value, secureTextEntry, keyboardType, onChangeText }) => {
 
     if (textarea === true) {
         return (
             <View style={styles.container}>
                 <Text style={styles.label(fontSize)}>{label} :</Text>
-                <TextInput style={styles.inputTextarea(fontSize)} multiline={true} numberOfLines={4} placeholder={placeholder} value={value} />
+                <TextInput style={styles.inputTextarea(fontSize)} multiline={true} numberOfLines={4} placeholder={placeholder} value={value} onChangeText={onChangeText} />
             </View>
         );
     }
     return (
         <View style={styles.container}>
             <Text style={styles.label(fontSize)}>{label} :</Text>
-            <TextInput style={styles.input(fontSize, width, height)} value={value} keyboardType={keyboardType} secureTextEntry={secureTextEntry} />
+            <TextInput style={styles.input(fontSize, width, height)} value={value} keyboardType={keyboardType} secureTextEntry={secureTextEntry} onChangeText={onChangeText} />
         </View>
     )
 }

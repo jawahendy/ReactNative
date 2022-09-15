@@ -25,12 +25,14 @@ const styles = StyleSheet.create({
         elevation: 5,
         padding: 10,
         borderRadius: 50,
-        width: 80,
-        height: 80,
+        width: responsiveWidth(91),
+        height: responsiveWidth(91),
+        right: responsiveWidth(10),
+        marginHorizontal: 2
     },
     logo: {
-        width: responsiveWidth(50),
-        height: responsiveHeight(50),
+        width: responsiveWidth(60),
+        height: responsiveWidth(60),
         alignSelf: 'center',
         top: 5,
     },

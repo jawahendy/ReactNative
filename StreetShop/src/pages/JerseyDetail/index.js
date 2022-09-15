@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Platform } from 'react-native'
+import { Text, StyleSheet, View, Platform, ScrollView } from 'react-native'
 import React, { Component } from 'react'
 import { colors, fonts, numberWithCommas, responsiveHeight, responsiveWidth } from '../../utils'
 import { Buttons, CardLiga, Distances, Inputan, Pilihan } from '../../components'
@@ -38,48 +38,50 @@ export default class JerseyDetail extends Component {
                     <View style={styles.liga}>
                         <CardLiga liga={jersey.liga} />
                     </View>
-                    <View style={styles.desc}>
-                        <Text style={styles.nama}>{jersey.nama}</Text>
-                        <Text style={styles.harga}>Price : Rp. {numberWithCommas(jersey.harga)}</Text>
-                        <View style={styles.garis} />
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.desc}>
+                            <Text style={styles.nama}>{jersey.nama}</Text>
+                            <Text style={styles.harga}>Price : Rp. {numberWithCommas(jersey.harga)}</Text>
+                            <View style={styles.garis} />
 
-                        <View style={styles.wrapperJB}>
-                            <Text style={styles.jenisberat}>Type : {jersey.jenis}</Text>
-                            <Text style={styles.jenisberat}> Weight : {jersey.berat}</Text>
-                        </View>
+                            <View style={styles.wrapperJB}>
+                                <Text style={styles.jenisberat}>Type : {jersey.jenis}</Text>
+                                <Text style={styles.jenisberat}> Weight : {jersey.berat}</Text>
+                            </View>
 
-                        <View style={styles.wrapperInput}>
+                            <View style={styles.wrapperInput}>
+                                <Inputan
+                                    label="Amount"
+                                    width={responsiveWidth(166)}
+                                    height={responsiveHeight(53)}
+                                    fontSize={13}
+                                    keyboardType={Platform.OS === "ios" ? "name-phone-pad" : "number-pad"}
+                                />
+                                <Pilihan
+                                    label="Size"
+                                    width={responsiveWidth(166)}
+                                    height={responsiveHeight(53)}
+                                    fontSize={13}
+                                    data={jersey.ukuran}
+                                />
+                            </View>
                             <Inputan
-                                label="Amount"
-                                width={responsiveWidth(166)}
-                                height={responsiveHeight(53)}
+                                textarea={true}
+                                label="Information"
                                 fontSize={13}
-                                keyboardType={Platform.OS === "ios" ? "name-phone-pad" : "number-pad"}
+                                placeholder="Note..."
+
                             />
-                            <Pilihan
-                                label="Size"
-                                width={responsiveWidth(166)}
-                                height={responsiveHeight(53)}
-                                fontSize={13}
-                                data={jersey.ukuran}
+                            <Distances height={10} />
+                            <Buttons
+                                title="Pick To Cart"
+                                type="textIcon"
+                                icon="white-Cart"
+                                padding={responsiveHeight(15)}
+                                fontSize={18}
                             />
                         </View>
-                        <Inputan
-                            textarea={true}
-                            label="Information"
-                            fontSize={13}
-                            placeholder="Note..."
-
-                        />
-                        <Distances height={10} />
-                        <Buttons
-                            title="Pick To Cart"
-                            type="textIcon"
-                            icon="white-Cart"
-                            padding={responsiveHeight(15)}
-                            fontSize={18}
-                        />
-                    </View>
+                    </ScrollView>
                 </View>
             </View>
         )

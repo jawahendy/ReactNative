@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
     },
     league: {
-        marginHorizontal: 30,
+        marginHorizontal: 20,
+        marginTop: 10,
     },
     Jersey: {
         marginHorizontal: 30,

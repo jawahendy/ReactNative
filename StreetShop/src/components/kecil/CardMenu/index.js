@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 30,
         marginHorizontal: 30,
-        padding: responsiveHeight(20),
+        padding: responsiveHeight(15),
     },
     textmenu: {
         fontSize: 18,

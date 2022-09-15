@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 10,
         marginHorizontal: 30,
-        paddingVertical: responsiveHeight(15),
-        paddingHorizontal: responsiveHeight(15),
+        paddingVertical: responsiveHeight(19),
+        paddingHorizontal: responsiveHeight(19),
     },
     gambar: {
-        width: responsiveWidth(77),
-        height: responsiveHeight(88),
+        width: responsiveWidth(60),
+        height: responsiveHeight(60),
         resizeMode: 'contain',
     },
     hapus: {

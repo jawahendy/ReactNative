@@ -8,6 +8,8 @@ import {
     TouchableWithoutFeedback,
     Keyboard,
     Dimensions,
+    ToastAndroid,
+    Alert,
 } from 'react-native'
 import React, { Component } from 'react'
 import { colors, fonts, responsiveHeight, responsiveWidth } from '../../utils'
@@ -15,7 +17,29 @@ import { ImgRegister1 } from '../../assets'
 import { Buttons, Distances, Inputan } from '../../components'
 
 export default class Register1 extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            nama: '',
+            email: '',
+            noHp: '',
+            password: ''
+        }
+    }
+
+    onContinue = () => {
+        const { nama, email, noHp, password } = this.state
+        if (nama && email && noHp && password) {
+            this.props.navigation.navigate('Register2', this.state);
+        } else {
+            Alert.alert("Incorret", "Please insert all field")
+        }
+    }
+
     render() {
+        const { nama, email, noHp, password } = this.state
         return (
             <KeyboardAvoidingView
                 behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -36,19 +60,31 @@ export default class Register1 extends Component {
                         </View>
 
                         <View style={styles.card}>
-                            <Inputan label={"Name"} />
-                            <Inputan label={"Email"} />
+                            <Inputan
+                                label={"Name"}
+                                value={nama}
+                                onChangeText={(nama) => this.setState({ nama })}
+                            />
+                            <Inputan
+                                label={"Email"}
+                                value={email}
+                                onChangeText={(email) => this.setState({ email })}
+                            />
                             <Inputan
                                 label={"Phone"}
                                 keyboardType={Platform.OS === "ios" ? "name-phone-pad" : "number-pad"}
+                                value={noHp}
+                                onChangeText={(noHp) => this.setState({ noHp })}
                             />
                             <Inputan
                                 label={"Password"}
                                 secureTextEntry
+                                value={password}
+                                onChangeText={(password) => this.setState({ password })}
                             />
                             <Distances height={15} />
 
-                            <Buttons title="CONTINUE" type="text" padding={10} fontSize={18} onPress={() => this.props.navigation.navigate('Register2')} />
+                            <Buttons title="CONTINUE" type="text" padding={10} fontSize={18} onPress={() => this.onContinue()} />
                         </View>
                     </ScrollView>
                 </TouchableWithoutFeedback>
